@@ -111,12 +111,18 @@ let UserSchema = new mongoose.Schema({
       default:0,
     }
   },
+  //贴包
   package:{
     type:Number,
     default:0
   },
   //积分
   integral:{
+    type:Number,
+    default:0
+  },
+  //排名分
+  rank:{
     type:Number,
     default:0
   },
