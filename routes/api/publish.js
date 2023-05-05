@@ -26,6 +26,7 @@ router.post('/publish', upload.array("fileList",3), (req, res) => {
         images[a] = '/uploads/'+ req.files[a].filename
     }
     let data = JSON.parse(req.body.data)
+
     let PublishModel =  data.publishType === 'need'? NeedModel:  SupplyModel
 
     UserModel.findOne({id:data.id},(err1,userData)=>{
