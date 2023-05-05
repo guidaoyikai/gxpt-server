@@ -32,11 +32,15 @@ let supplySchema = new mongoose.Schema({
   //支付宝收款码 1公开，0保密
   images:[],
   type:[],
+  rank:{
+    type:Number,
+    default:0,
+  },
   publish_time:String,
-  //是否通过审核
+  //是否通过审核0审核中,1通过，2不通过
   is_publish:{
     type:Number,
-    enum:[0,1],
+    enum:[0,1,2],
     default:0
   },
   //是否完成
@@ -44,7 +48,7 @@ let supplySchema = new mongoose.Schema({
     type:Number,
     enum:[0,1],
     default:0
-  }
+  },
 });
 
 //创建模型对象  对文档操作的封装对象

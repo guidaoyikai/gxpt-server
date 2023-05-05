@@ -28,7 +28,7 @@ router.get('/need', (req, res) => {
       
     });
   }else{
-    NeedModel.find({title:{$regex:searchContent}}).skip(skipNumber).limit(8).exec(function(err,data){
+    NeedModel.find({title:{$regex:searchContent}}).sort({rank:-1}).skip(skipNumber).limit(8).exec(function(err,data){
       if(err) throw err;
 
       

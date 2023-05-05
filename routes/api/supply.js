@@ -30,7 +30,7 @@ router.get('/supply', (req, res) => {
 
     });
   }else{
-    SupplyModel.find({title:{$regex:searchContent}}).skip(skipNumber).limit(8).exec(function(err,data){
+    SupplyModel.find({title:{$regex:searchContent}}).sort({rank:-1}).skip(skipNumber).limit(8).exec(function(err,data){
       if(err) throw err;
 
       SupplyModel.find({title:{$regex:searchContent}},function(err, count){

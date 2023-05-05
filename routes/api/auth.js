@@ -11,9 +11,9 @@ const md5 = require('md5');
 //登录操作
 router.post('/login', (req, res) => {
   //获取用户名和密码
-  let {username, password} = req.body;
+  let {phone, password} = req.body;
   //查询数据库
-  UserModel.findOne({username: username, password: md5(password)}, (err, data) => {
+  UserModel.findOne({phone: phone, password: md5(password)}, (err, data) => {
     //判断
     if(err){
       res.json({
@@ -34,7 +34,7 @@ router.post('/login', (req, res) => {
     
     //创建当前用户的 token
     let token = jwt.sign({
-      username: data.username,
+      phone: data.phone,
       _id: data._id
     }, secret, {
       expiresIn: 60 * 60 * 24 * 7

@@ -33,9 +33,13 @@ let NeedSchema = new mongoose.Schema({
   images:[],
   type:[],
   publish_time:String,
+  rank:{
+    type:Number,
+    default:0,
+  },
   is_publish:{
     type:Number,
-    enum:[0,1],
+    enum:[0,1,2],
     default:0
   },
   completed:{

@@ -5,13 +5,21 @@ const mongoose = require('mongoose');
 let LetterSchema = new mongoose.Schema({
   //信件id
   id:String,
+  //标题
   title:String,
+  //内容
   content:String,
+  //作者
   authorId:String,
+  //作者昵称
   authorNickname:String,
+  //收件人
   receiverId:String,
+  //收件人昵称
   receiverNickname:String,
+  //创建时间
   create_time:String,
+  //是否已读
   is_read:{
     type:Number,
     enum:[0,1],

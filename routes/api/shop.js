@@ -6,6 +6,7 @@ var router = express.Router();
 const ShopModel = require('../../models/ShopModel')
 const UserModel = require('../../models/UserModel')
 const ExchageModel = require('../../models/ExchageModel')
+const dateFormat = require('../../utils/dateFormat')
 
 
 
@@ -86,7 +87,7 @@ router.post('/shop', (req, res) => {
                     }
                 );
 
-                ExchageModel.create({...req.body}, (err2,data)=>{
+                ExchageModel.create({...req.body, publish_time:dateFormat(new Date())}, (err2,data)=>{
                     if(err2) throw err2;
                     res.json({
                         code:10000,
