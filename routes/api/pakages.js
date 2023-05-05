@@ -20,7 +20,6 @@ router.get('/pakages', (req, res) => {
 
 
 router.post('/pakages', (req, res) => {
-    console.log(req.body)
     UserModel.findOne({id:req.body.id},(err,userData)=>{
         if(err) throw err;
             UserModel.updateOne(

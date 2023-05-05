@@ -12,11 +12,11 @@ router.get('/supply', (req, res) => {
   let searchContent = req.query.searchContent
 
   if(!searchContent){
-    SupplyModel.find().skip(skipNumber).limit(8).exec(function(err,data){
+    SupplyModel.find({$and: [{is_publish: 0}, {completed: 0}]}).skip(skipNumber).limit(8).exec(function(err,data){
       if(err) throw err;
 
 
-      SupplyModel.find(function(err, count){
+      SupplyModel.find({$and: [{is_publish: 0}, {completed: 0}]},function(err, count){
         if(err) throw err;
         res.json({
           code:"10000",
@@ -30,10 +30,10 @@ router.get('/supply', (req, res) => {
 
     });
   }else{
-    SupplyModel.find({title:{$regex:searchContent}}).sort({rank:-1}).skip(skipNumber).limit(8).exec(function(err,data){
+    SupplyModel.find({$and: [{is_publish: 0}, {completed: 0},{title:{$regex:searchContent}}]}).sort({rank:-1}).skip(skipNumber).limit(8).exec(function(err,data){
       if(err) throw err;
 
-      SupplyModel.find({title:{$regex:searchContent}},function(err, count){
+      SupplyModel.find({$and: [{is_publish: 0}, {completed: 0},{title:{$regex:searchContent}}]},function(err, count){
         if(err) throw err;
         res.json({
           code:"10000",

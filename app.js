@@ -17,6 +17,12 @@ const shop = require('./routes/api/shop');
 const pakages = require('./routes/api/pakages');
 const rank = require('./routes/api/rank');
 const exchange = require('./routes/api/exchange');
+const myNeed = require('./routes/api/myNeed');
+const mySupply = require('./routes/api/mySupply');
+const myInformation = require('./routes/api/myInformation');
+
+
+
 
 
 //导入 account 接口路由文件
@@ -70,6 +76,9 @@ app.use('/api', shop);
 app.use('/api', pakages);
 app.use('/api', rank);
 app.use('/api', exchange);
+app.use('/api', myNeed);
+app.use('/api', mySupply);
+app.use('/api', myInformation);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

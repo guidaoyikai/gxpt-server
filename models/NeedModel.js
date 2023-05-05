@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 //设置集合中文档的属性以及属性值的类型
 let NeedSchema = new mongoose.Schema({
   needId:String,
+  //用户ID
   id:String,
   //头像
   avatar: String,
@@ -37,11 +38,13 @@ let NeedSchema = new mongoose.Schema({
     type:Number,
     default:0,
   },
+  //0审核通过，1审核失败，2审核中
   is_publish:{
     type:Number,
     enum:[0,1,2],
     default:0
   },
+  //0已上架，1已下架
   completed:{
     type:Number,
     enum:[0,1],

@@ -13,10 +13,10 @@ router.get('/need', (req, res) => {
 
   if(!searchContent){
     
-    NeedModel.find().skip(skipNumber).limit(8).exec(function(err,data){
+    NeedModel.find({$and: [{is_publish: 0}, {completed: 0}]}).skip(skipNumber).limit(8).exec(function(err,data){
       if(err) throw err;
 
-      NeedModel.find(function(err, count){
+      NeedModel.find({$and: [{is_publish: 0}, {completed: 0}]},function(err, count){
         if(err) throw err;
         res.json({
           code:"10000",
@@ -28,11 +28,11 @@ router.get('/need', (req, res) => {
       
     });
   }else{
-    NeedModel.find({title:{$regex:searchContent}}).sort({rank:-1}).skip(skipNumber).limit(8).exec(function(err,data){
+    NeedModel.find({$and: [{is_publish: 0}, {completed: 0},{title:{$regex:searchContent}}]}).sort({rank:-1}).skip(skipNumber).limit(8).exec(function(err,data){
       if(err) throw err;
 
       
-      NeedModel.find({title:{$regex:searchContent}},function(err, count){
+      NeedModel.find({$and: [{is_publish: 0}, {completed: 0},{title:{$regex:searchContent}}]},function(err, count){
         if(err) throw err;
         res.json({
           code:"10000",

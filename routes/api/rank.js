@@ -19,7 +19,6 @@ router.get('/rank', (req, res) => {
 });
 
 router.post('/rank', (req, res) => {
-    console.log(req.body)
     UserModel.findOne({id:req.body.id},(err,userData)=>{
         if(err) throw err;
             UserModel.updateOne(
