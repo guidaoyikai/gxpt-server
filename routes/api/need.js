@@ -1,12 +1,14 @@
 var express = require('express');
 var router = express.Router();
+const hotSearchMiddleware = require('../../middlewares/hotSearchMiddleware');
 
 
 //导入 用户的模型
 const NeedModel = require('../../models/NeedModel')
 
 //需求页查询
-router.get('/need', (req, res) => {
+router.get('/need',hotSearchMiddleware, (req, res) => {
+
   let page = req.query.page - 1 <=0 ? 0 :  req.query.page - 1
   let skipNumber =  page * 8
   let searchContent = req.query.searchContent

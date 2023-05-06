@@ -22,7 +22,7 @@ const mySupply = require('./routes/api/mySupply');
 const myInformation = require('./routes/api/myInformation');
 
 
-
+const hotSearch = require('./routes/api/hotSearch')
 
 
 //导入 account 接口路由文件
@@ -79,6 +79,7 @@ app.use('/api', exchange);
 app.use('/api', myNeed);
 app.use('/api', mySupply);
 app.use('/api', myInformation);
+app.use('/api', hotSearch);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
