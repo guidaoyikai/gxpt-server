@@ -42,7 +42,7 @@ let NeedSchema = new mongoose.Schema({
   is_publish:{
     type:Number,
     enum:[0,1,2],
-    default:0
+    default:2
   },
   //0已上架，1已下架
   completed:{

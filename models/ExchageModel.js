@@ -26,7 +26,7 @@ let ExchageSchema = new mongoose.Schema({
     type:Number,
     default:0
   },
-  //状态，0待审核，1审核通过，2审核失败
+  //状态，0审核中，1审核通过，2审核失败
   state:{
     type:Number,
     enum:[0,1,2],

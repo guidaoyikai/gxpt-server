@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 //设置集合中文档的属性以及属性值的类型
 let ShopSchema = new mongoose.Schema({
   id:String,
-  //头像
+  //积分
   integral: {
     type:Number,
     default:0
@@ -12,7 +12,7 @@ let ShopSchema = new mongoose.Schema({
   //标题
   title: String,
   textarea: String,
-  //支付宝收款码 1公开，0保密
+  //图片
   image:String,
   worth:{
     type:Number,
